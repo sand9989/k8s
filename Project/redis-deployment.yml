@@ -1,0 +1,21 @@
+---
+apiversion: apps/v1
+kind: Deployment
+metadata:
+ name: redis-db
+ labels:
+  type: inmem-db
+spec:
+ selector:
+   matchLabels:
+    type: inmem-db
+ template:
+  metadata:
+    name: redis-db-pod
+    labels:
+     type: inmem-db
+  spec:
+   containers:
+     - name: myredis
+       image: redis-db
+...

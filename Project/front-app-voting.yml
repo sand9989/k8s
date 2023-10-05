@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: front-app-voting
+ labels:
+  type: voting-app
+spec:
+ replicas: 2
+ selector:
+  matchLabels:
+   type: voting-app
+ template:
+  metadata:
+    name: front-app-voting-pod
+    type: voting-app
+  spec:
+   containers:
+     - name: front-app-voting
+       image: dockersamples/examplevotingapp_vote
+...
